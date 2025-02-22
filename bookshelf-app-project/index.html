@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-100">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- kostum CSS -->
+    <style>
+      input[type="checkbox"] {
+        @apply w-4 h-4;
+      }
+    </style>
+
+    
+    <script defer src="main.js"></script>
+  </head>
+  <body class="min-h-screen">
+    <header class="bg-blue-600 text-white py-6 shadow-lg">
+      <div class="container mx-auto px-4">
+        <h1 class="text-3xl font-bold">📚 Bookshelf App</h1>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Form Section -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold mb-4">Tambah Buku Baru</h2>
+          <form id="bookForm" data-testid="bookForm" class="space-y-4">
+            <div>
+              <label for="bookFormTitle" class="block text-sm font-medium text-gray-700">Judul</label>
+              <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" 
+                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+            </div>
+            <div>
+              <label for="bookFormAuthor" class="block text-sm font-medium text-gray-700">Penulis</label>
+              <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" 
+                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+            </div>
+            <div>
+              <label for="bookFormYear" class="block text-sm font-medium text-gray-700">Tahun</label>
+              <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" 
+                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+            </div>
+            <div class="flex items-center space-x-2">
+              <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox" 
+                     class="rounded text-blue-600 focus:ring-blue-500" />
+              <label for="bookFormIsComplete" class="text-sm font-medium text-gray-700">Selesai dibaca</label>
+            </div>
+            <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton" 
+                    class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+              Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+            </button>
+          </form>
+        </section>
+
+        <!-- Search Section -->
+        <section class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold mb-4">Cari Buku</h2>
+          <form id="searchBook" data-testid="searchBookForm" class="flex space-x-4">
+            <div class="flex-1">
+              <label for="searchBookTitle" class="block text-sm font-medium text-gray-700">Judul</label>
+              <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" 
+                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500" />
+            </div>
+            <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton" 
+                    class="mt-6 bg-gray-600 text-white py-2 px-4 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+              Cari
+            </button>
+          </form>
+        </section>
+      </div>
+
+      <!-- Book Lists -->
+      <div class="grid md:grid-cols-2 gap-8 mt-8">
+        <section class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold mb-4">Belum selesai dibaca</h2>
+          <div id="incompleteBookList" data-testid="incompleteBookList" class="space-y-4">
+            <!-- insert buku -->
+          </div>
+        </section>
+
+        <section class="bg-white p-6 rounded-lg shadow-md">
+          <h2 class="text-2xl font-semibold mb-4">Selesai dibaca</h2>
+          <div id="completeBookList" data-testid="completeBookList" class="space-y-4">
+         
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
